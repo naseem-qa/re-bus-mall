@@ -189,6 +189,9 @@ $('#container').click(function (event) {
         resultList();
             alert('No more clicking for you!')
             $('#container').off('click')
+             //local storage 
+      var productString = JSON.stringify(Goods.all);
+      localStorage.setItem('products', productString);
             finalChart();
         } else {
            renderNewGoods();
@@ -230,11 +233,32 @@ function finalChart() {
     options: {}
   });
 }
+function getStoredProducts() {
+
+  // retreive the stored into about list of product
+  var productString = localStorage.getItem('products');
+
+  if (productString) {
+
+    var rawObjectArray = JSON.parse(productString);
+
+    for (var i = 0; i < rawObjectArray.length; i++) {
+      var rawObject = rawObjectArray[i];
+      var currentInstance = Goods.all[i];
+      currentInstance.clickregister = rawObject.clickregister;
+      currentInstance.shownregister = rawObject.shownregister;
+
+    }
+  }
+}
+
+getStoredProducts();
 
 
 // resultList();
 renderNewGoods();
 // finalChart(); 
+
 
 
 
