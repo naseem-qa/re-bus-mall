@@ -198,6 +198,10 @@ $('#container').click(function (event) {
         }
     }
 });
+
+
+
+// the chart 
 function finalChart() {
   var goodsArray = [];
   var clickArray = [];
@@ -253,8 +257,6 @@ function getStoredProducts() {
 }
 
 getStoredProducts();
-
-
 // resultList();
 renderNewGoods();
 
