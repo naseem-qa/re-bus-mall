@@ -257,7 +257,6 @@ getStoredProducts();
 
 // resultList();
 renderNewGoods();
-// finalChart(); 
 
 
 
